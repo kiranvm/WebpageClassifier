@@ -8,26 +8,27 @@ These instructions will get you a copy of the project up and running on your mac
 ### Prerequisites
 +
 	Python - 3.0+ /url "https://www.python.org/downloads/"
+	
 	Libraries:
 
 	1. Python NLTK Library 
 	.................
-	> pip install nltk
+	$ pip install nltk
 	.................
 
 	2. Python BeautifulSoup	
 	.................
-	> pip install BeautifulSoup
+	$ pip install BeautifulSoup
 	.................
 
 	3. Python urllib	
 	.................
-	> pip install urllib
+	$ pip install urllib
 	.................
 
 	4. Python requests	
 	.................
-	> pip install requests
+	$ pip install requests
 	.................
 +
 
@@ -37,18 +38,18 @@ These instructions will get you a copy of the project up and running on your mac
 	Syntax : python webClassifier.py <url> 
 	Example as given below.
 	.................
-	> python webClassifier.py https://www.cnn.com/2013/06/10/politics/edward-snowden-profile/
+	$ python webClassifier.py https://www.cnn.com/2013/06/10/politics/edward-snowden-profile/
 	.................	
 +
 
 ### Design Details:
-+
+
 	1. webClassifier.py - Main File to run
 	2. NltkHelper.py - Helper functions using NLTK library
 	3. WebHelper.py - Web parsing helper functions
 	4. IOHelper.py	- I/O operations helper functions
 	5. Helpers.py	- Miscellenous helper functions
-+
+
 
 ### Process Abstract:
 +
