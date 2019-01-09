@@ -9,3 +9,5 @@ class Helpers:
 		x = [''.join(c for c in tokenizedList if c not in string.punctuation) for s in tokenizedList]
 		x = [s for s in x if s]
 		return x
+
+	

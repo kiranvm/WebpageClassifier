@@ -10,7 +10,7 @@ from NltkHelper import NltkHelper
 
 #reading the url supplied as command line argument
 url = str(sys.argv[1])
-print (url)
+#print (url)
 if not Helpers.urlValidator(url):
 	print ("URL entered is not valid")
 	sys.exit()
@@ -19,7 +19,7 @@ webPage = WebHelper(url)
 
 #parsing readable text from the html page below
 txt = webPage.text_from_html().lower()
-print (txt)
+#print (txt)
 
 # Optional Step - writing to a file as temporary backup for troubleshooting
 io = IoHelper("output.txt")
@@ -32,10 +32,21 @@ tokenizedTxt = NltkHelper.txtTokenizer("txt",txt)
 trimmedTxt = NltkHelper.stopWordEliminator(tokenizedTxt)
 #print (trimmedTxt)
 
+#part os speech tagging to identify
+#chunks = NltkHelper.posTaggin(txt)
+#print(chunks[0])
+
+#stemming the result
+stemmedText = NltkHelper.stemmSentence(trimmedTxt)
+
 #Finding most repeated words using frequency distribution
-keyWords = NltkHelper.mostCommon(trimmedTxt,20)
-print(keyWords)
+highFreqWords = []
+keyWords = NltkHelper.mostCommon(stemmedText,10)
 keyWords = dict(keyWords)
 for key, value in keyWords.items():
 	if key not in string.punctuation:
-		print (key)
+		highFreqWords.append(key)
+#print(output)
+
+result = NltkHelper.findNouns(highFreqWords)
+print(result)

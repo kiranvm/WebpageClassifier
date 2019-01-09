@@ -4,6 +4,8 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from nltk.corpus import state_union
 from nltk.tokenize import PunktSentenceTokenizer
+from nltk.corpus import wordnet as wn
+from string import punctuation	
 
 class NltkHelper:
 
@@ -31,7 +33,7 @@ class NltkHelper:
 	def stemmSentence(tokenizedText):
 		stemmed_sentence = []
 		ps = PorterStemmer()
-		for word in filtered_sentence:
+		for word in tokenizedText:
 			stemmed_sentence.append(ps.stem(word))
 		return stemmed_sentence
 
@@ -40,6 +42,7 @@ class NltkHelper:
 	def posTaggin(normalText):	
 		custom_sent_tokenizer = PunktSentenceTokenizer()
 		tokenized = custom_sent_tokenizer.tokenize(normalText)
+		chunks = []
 
 		try:
 			for i in tokenized:
@@ -54,15 +57,34 @@ class NltkHelper:
 				#print(tagged)
 				#print(chunked)
 				for subtree in chunked.subtrees(filter=lambda t: t.label() == 'Chunk'):
-					print(subtree)
+					#print(subtree)
+					chunks.append(subtree)
 					#chunked.draw()
-
+		
 		except Exception as e:
 			print(str(e))
 
+		return chunks
 
 
 	def mostCommon(tokenizedText,count):
 		#finding frequency distribution
 		all_words = FreqDist(tokenizedText)
 		return(all_words.most_common(count))
+
+	def findNouns(words):
+		results = []
+		for w in words:
+			desc = wn.synsets(w)
+			#print(str(w) +" : "+str(desc))
+			if desc:
+				tmp = wn.synsets(w)[0].pos()
+				#print (w, ":", tmp)
+				if tmp == "n":
+					results.append(w)
+			else:
+				ww = ''.join(c for c in w if c not in punctuation)
+				if (len(ww)>2):
+					#print("word here: ",ww)
+					results.append(ww)
+		return (results)
