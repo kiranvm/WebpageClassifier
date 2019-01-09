@@ -1,0 +1,13 @@
+scrapy shell 'http://quotes.toscrape.com'
+response.css('title')
+response.css('h1')
+response.css('li')
+response.css('title')
+response.css('title').extract()
+response.css("div.quote")
+
+
+Things to consider:
+1. boundary conditions : no errors to be shown
+2. Exact same output as in samples
+3. Detailed option
