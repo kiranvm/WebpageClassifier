@@ -6,7 +6,7 @@ Given any page (URL), the program will classify the page, and return a list of r
 These instructions will get you a copy of the project up and running on your machine for development and testing purposes. 
 
 ### Prerequisites
-+
+
 	Python - 3.0+ /url "https://www.python.org/downloads/"
 	
 	Libraries:
@@ -15,13 +15,13 @@ These instructions will get you a copy of the project up and running on your mac
 	2. Python BeautifulSoup	
 	3. Python urllib	
 	4. Python requests
-+	
-.................
+
+Commands:
+
 	$ pip install nltk
 	$ pip install BeautifulSoup
 	$ pip install urllib
 	$ pip install requests
-.................
 
 
 ### How to run
