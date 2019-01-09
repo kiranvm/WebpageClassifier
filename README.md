@@ -12,35 +12,28 @@ These instructions will get you a copy of the project up and running on your mac
 	Libraries:
 
 	1. Python NLTK Library 
-	.................
-	$ pip install nltk
-	.................
-
 	2. Python BeautifulSoup	
-	.................
-	$ pip install BeautifulSoup
-	.................
-
 	3. Python urllib	
-	.................
+	4. Python requests
++	
+.................
+	$ pip install nltk
+	$ pip install BeautifulSoup
 	$ pip install urllib
-	.................
-
-	4. Python requests	
-	.................
 	$ pip install requests
-	.................
-+
+.................
+
 
 ### How to run
-+
+
 	Program takes one command line argument which should be a valid url.
 	Syntax : python webClassifier.py <url> 
 	Example as given below.
+	
 	.................
 	$ python webClassifier.py https://www.cnn.com/2013/06/10/politics/edward-snowden-profile/
 	.................	
-+
+
 
 ### Design Details:
 
@@ -52,25 +45,25 @@ These instructions will get you a copy of the project up and running on your mac
 
 
 ### Process Abstract:
-+
+
 	1. Project parses readable text from a webpage
 	2. Word tokenization is performed on the result
 	3. Stop words from the word tokenized text is removed
 	4. Stemming is performed on this
 	5. Frequency distribution is used to find most top repeated words
 	6. Nouns from the most repeated words are given as the relevant keywords defining the page
-+
+
 
 ### In progress:
-+
+
 	1. Using part of Speech tagging to identify group of nouns
 	2. Identifying relevant bigrams/trigrams from the page.
-+
+
 
 ### Bugs:
-+
+
 	1. Project doesn't support amazon webpages as amazon prevents web crawling through program. Alternative approach to be checked.
-+
+
 
 ## License
 MIT License
