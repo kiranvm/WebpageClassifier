@@ -26,12 +26,12 @@ Commands:
 
 ### How to run
 
-	Program takes one command line argument which should be a valid url.
-	Syntax : python webClassifier.py <url> 
+	Program takes two command line arguments. One is a valid URL and second is the count of relevant tags.
+	Syntax : python webClassifier.py <url> <count>
 	Example as given below.
 	
 	.................
-	$ python webClassifier.py https://www.cnn.com/2013/06/10/politics/edward-snowden-profile/
+	$ python webClassifier.py https://www.cnn.com/2013/06/10/politics/edward-snowden-profile/ 25
 	.................	
 
 

@@ -10,6 +10,14 @@ from NltkHelper import NltkHelper
 
 #reading the url supplied as command line argument
 url = str(sys.argv[1])
+
+#reading the count supplied as command line argument
+try:
+	count = int(sys.argv[2])
+except Exception as e:
+	count = 10
+
+
 #print (url)
 if not Helpers.urlValidator(url):
 	print ("URL entered is not valid")
@@ -32,7 +40,7 @@ tokenizedTxt = NltkHelper.txtTokenizer("txt",txt)
 trimmedTxt = NltkHelper.stopWordEliminator(tokenizedTxt)
 #print (trimmedTxt)
 
-#part os speech tagging to identify
+#part of speech tagging to identify
 #chunks = NltkHelper.posTaggin(txt)
 #print(chunks[0])
 
@@ -41,7 +49,7 @@ stemmedText = NltkHelper.stemmSentence(trimmedTxt)
 
 #Finding most repeated words using frequency distribution
 highFreqWords = []
-keyWords = NltkHelper.mostCommon(stemmedText,10)
+keyWords = NltkHelper.mostCommon(stemmedText,count)
 keyWords = dict(keyWords)
 for key, value in keyWords.items():
 	if key not in string.punctuation:
